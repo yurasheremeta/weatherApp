@@ -7,11 +7,19 @@ import {
 
 import { SignUp } from "./pages/signUp/SignUp";
 import { DashboardPage } from "./pages/dashboard/DashboardPage";
+import { PrivateRoute } from "shared/components/PrivateRoute/PrivateRoute";
 
 const routes = createRoutesFromElements([
   <Route>
     <Route element={<SignUp />} path="/sign-up" />
-    <Route element={<DashboardPage />} path="/dashboard" />
+    <Route
+      element={
+        <PrivateRoute>
+          <DashboardPage />
+        </PrivateRoute>
+      }
+      path="/dashboard"
+    />
   </Route>,
 ]);
 
