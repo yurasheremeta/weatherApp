@@ -29,7 +29,7 @@ export const Dashboard = (): ReactElement => {
   return (
     <Box p={3}>
       <Box>
-        <Typography mb={3} variant="h3" color={"#344b5d"}> Please enter the cithy ro see the forecast</Typography>
+        <Typography mb={3} variant="h3" color={"#344b5d"}> Please enter the city to see the forecast</Typography>
         <Autocomplete
           options={euCities}
           onInputChange={(_, city) => addCity(city)}
