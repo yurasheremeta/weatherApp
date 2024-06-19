@@ -14,8 +14,8 @@ import useWeatherStore from "../hooks/useStore";
 import { City } from "../models/City";
 
 export const Dashboard = (): ReactElement => {
-  const { isLoading } = useGetWeather();
-  const { city, addCity, weather} = useWeatherStore();
+  const { isLoading, refetch } = useGetWeather();
+  const { city, addCity, weather } = useWeatherStore();
 
   const euCities: City[] = useMemo(() => {
     return cities.map((el) => {
@@ -26,13 +26,20 @@ export const Dashboard = (): ReactElement => {
     });
   }, []);
 
+  const addCityToStore = (city: string) => {
+    addCity(city);
+    refetch();
+  };
+
   return (
     <Box p={3}>
       <Box>
-        <Typography mb={3} variant="h3" color={"#344b5d"}> Please enter the city to see the forecast</Typography>
+        <Typography mb={3} variant="h3" color={"#344b5d"}>
+          Please enter the city to see the forecast
+        </Typography>
         <Autocomplete
           options={euCities}
-          onInputChange={(_, city) => addCity(city)}
+          onInputChange={(_, city) => addCityToStore(city)}
           renderInput={(params) => <TextField {...params} label="Cities" />}
         />
       </Box>
@@ -41,6 +48,7 @@ export const Dashboard = (): ReactElement => {
         {city}
       </Typography>
       {city && <WeatherBlock weather={weather} />}
+      {isLoading && <CircularProgress />}
     </Box>
   );
 };

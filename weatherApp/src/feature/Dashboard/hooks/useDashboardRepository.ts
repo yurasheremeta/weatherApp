@@ -6,7 +6,7 @@ import { mockWeather } from "../data/mockWeather";
 
 export const useGetWeather= () => {
   const { addWeather } = useCityStore();
-  const { data, isLoading } = useQuery<IWeatherView[]>(
+  const { data, isLoading, refetch } = useQuery<IWeatherView[]>(
     ["weather-form"],
     () => mockWeather(),
     {
@@ -14,5 +14,5 @@ export const useGetWeather= () => {
     }
   );
 
-  return { data, isLoading };
+  return { data, isLoading, refetch };
 };
