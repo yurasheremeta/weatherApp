@@ -9,7 +9,7 @@ import { IWeatherBlockProps } from "./WeatherBlock.model";
 
 export const WeatherBlock = ({ weather }: IWeatherBlockProps): ReactElement => {
     const isMdScreen = useScreen();
-  
+    
     dayjs.extend(isToday);
     return (
       <>

@@ -25,14 +25,14 @@ export const WeatherCard = ({
 
   dayjs.extend(isToday);
 
-  const filteredWeather = useMemo(() => {
+  const filteredWeather = useMemo(() => {    
     return weather.reduce((acc: IWeather[], currVal) => {
 
     const isMorning = DetectDayPeriod(DayPeriods.morning);
     const isAfternoon = DetectDayPeriod(DayPeriods.afternoon);
     const isEvening = DetectDayPeriod(DayPeriods.evening);
 
-    acc.push(currVal);
+    acc?.push(currVal);
     if (date.isToday()) {
       if (isMorning) {
         return acc;
@@ -53,7 +53,7 @@ export const WeatherCard = ({
 
   return (
     <>
-      {filteredWeather.map((el,index) => (
+      {filteredWeather?.map((el,index) => (
        <Box key={index+el.temperature*el.windSpeed} sx={sxWeatherWrapper}>
        <Typography variant="h5">{el.periodOfDay}</Typography>
       
