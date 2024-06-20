@@ -11,10 +11,10 @@ export const DayPeriodsObj = {
     },
     [DayPeriods.evening]: {
         timeFrom: 18,
-        timeTo: 0
+        timeTo: 23
     },
     [DayPeriods.night]: {
-        timeFrom: 0,
+        timeFrom: 23,
         timeTo: 6
     }
 } 
