@@ -31,6 +31,8 @@ export const WeatherCard = ({
     const isMorning = DetectDayPeriod(DayPeriods.morning);
     const isAfternoon = DetectDayPeriod(DayPeriods.afternoon);
     const isEvening = DetectDayPeriod(DayPeriods.evening);
+    const isNight = DetectDayPeriod(DayPeriods.night);
+    
 
     acc?.push(currVal);
     if (date.isToday()) {
@@ -44,6 +46,8 @@ export const WeatherCard = ({
             el.periodOfDay !== DayPeriods.morning &&
             el.periodOfDay !== DayPeriods.afternoon
         );
+      } else if(isNight) {        
+          return acc.filter(el => el.periodOfDay === DayPeriods.night)
       }
     } else {
       return acc;
