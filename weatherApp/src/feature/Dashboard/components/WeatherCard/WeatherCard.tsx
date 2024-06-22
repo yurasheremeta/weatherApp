@@ -67,8 +67,7 @@ export const WeatherCard = ({
             <Typography variant="h5">{el.periodOfDay}</Typography>
 
             <Typography>
-              from {DayPeriodsObj[el.periodOfDay].timeFrom} to
-              {DayPeriodsObj[el.periodOfDay].timeTo}
+              from {DayPeriodsObj[el.periodOfDay].timeFrom} to {DayPeriodsObj[el.periodOfDay].timeTo}
             </Typography>
             <Typography variant="h3">T {el.temperature}°C</Typography>
             <Typography variant="h5">W {el.windSpeed} km/h</Typography>
