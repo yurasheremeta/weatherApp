@@ -43,7 +43,6 @@ export const Dashboard = (): ReactElement => {
           renderInput={(params) => <TextField {...params} label="Cities" />}
         />
       </Box>
-      {isLoading && <CircularProgress />}
       <Typography textAlign={"center"} variant="h2" color={"black"}>
         {city}
       </Typography>
